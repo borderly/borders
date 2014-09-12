@@ -5,7 +5,14 @@ function respond(req, res, next) {
   next();
 }
 
+function root(req, res, next) {
+  res.send('hello world');
+  next();
+}
+
 var server = restify.createServer();
+server.get('/', root);
+server.head('/', root);
 server.get('/hello/:name', respond);
 server.head('/hello/:name', respond);
 
