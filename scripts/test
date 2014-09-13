@@ -1,6 +1,6 @@
 #!/bin/sh
 node index.js &
-sleep 0.5
+sleep 0.1
 PID=$!
 ./node_modules/mocha/bin/mocha
 RESULT=$?
