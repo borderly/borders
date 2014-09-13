@@ -2,7 +2,6 @@ var request = require('supertest');
 var moment = require('moment');
 
 describe('GET /', function(){
-setTimeout('500');
   it('respond with json', function(done){
     request('http://localhost:8080')
       .get('/')
@@ -22,8 +21,7 @@ setTimeout('500');
   })
 })
 
-describe('GET /users', function(){
-setTimeout('500');
+describe('GET /users/:name', function(){
   it('respond with json', function(done){
     request('http://localhost:8080')
       .get('/hello/alex')
@@ -49,7 +47,6 @@ setTimeout('500');
 })
 
 describe('GET /date', function() {
-setTimeout('500');
   it('respond with json', function(done){
     request('http://localhost:8080')
       .get('/date')
@@ -65,6 +62,6 @@ setTimeout('500');
   it('respond with current date', function(done){
     request('http://localhost:8080')
       .get('/date')
-      .expect('{"date":"'+moment().format('MMMM Do YYYY, h:mm:ss a')+'"}', done);
+      .expect('{"fancydate":"'+moment().format('MMMM Do YYYY, h:mm:ss a')+'","date":"'+moment().format('L')+'"}', done);
   })
 })

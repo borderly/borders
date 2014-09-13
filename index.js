@@ -12,7 +12,10 @@ function root(req, res, next) {
 }
 
 function date(req, res, next) {
-  res.send({'date':moment().format('MMMM Do YYYY, h:mm:ss a')});
+  res.send({
+    'fancydate':moment().format('MMMM Do YYYY, h:mm:ss a'),
+    'date':moment().format('L')
+  });
 }
 
 function uhoh(req, res, next) {

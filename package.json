@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "mocha": "^1.21.4",
     "moment": "^2.8.3",
     "restify": "^2.8.2",
     "supertest": "^0.13.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./scripts/test"
   },
   "repository": {
     "type": "git",
