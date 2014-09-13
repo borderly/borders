@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "moment": "^2.8.3",
     "restify": "^2.8.2",
     "supertest": "^0.13.0"
   },
