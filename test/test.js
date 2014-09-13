@@ -21,7 +21,27 @@ describe('GET /', function(){
   })
 })
 
-describe('GET /users/:name', function(){
+describe('GET /hello', function(){
+  it('respond with json', function(done){
+    request('http://localhost:8080')
+      .get('/hello')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200, done);
+  })
+  it('repsond with 200 status', function(done){
+    request('http://localhost:8080')
+      .get('/hello')
+      .expect(200, done);
+  })
+  it('repsond with name "alex"', function(done){
+    request('http://localhost:8080')
+      .get('/hello')
+      .expect('{"hello":"stranger"}', done);
+  })
+})
+
+describe('GET /hello/:name', function(){
   it('respond with json', function(done){
     request('http://localhost:8080')
       .get('/hello/alex')

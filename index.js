@@ -1,8 +1,15 @@
 var restify = require('restify');
 var moment = require('moment');
 
-function respond(req, res, next) {
+function name(req, res, next) {
   res.send({'hello': req.params.name});
+  next();
+}
+
+function nameEmpty(req, res, next) {
+  res.send({
+    'hello':'stranger'
+  });
   next();
 }
 
@@ -25,8 +32,10 @@ function uhoh(req, res, next) {
 var server = restify.createServer();
 server.get('/', root);
 server.head('/', root);
-server.get('/hello/:name', respond);
-server.head('/hello/:name', respond);
+server.get('/hello', nameEmpty);
+server.head('/hello', nameEmpty);
+server.get('/hello/:name', name);
+server.head('/hello/:name', name);
 server.get('/date', date);
 server.head('/date', date);
 server.get('/(.*)/', uhoh);
