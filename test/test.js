@@ -34,7 +34,7 @@ describe('GET /hello', function(){
       .get('/hello')
       .expect(200, done);
   })
-  it('repsond with name "alex"', function(done){
+  it('repsond with name "stranger"', function(done){
     request('http://localhost:8080')
       .get('/hello')
       .expect('{"hello":"stranger"}', done);
