@@ -33,6 +33,7 @@ var server = restify.createServer({
   name: 'API'
 });
 server.use(restify.bodyParser());
+server.use(restify.CORS());
 
 server.get('/', root);
 server.head('/', root);
