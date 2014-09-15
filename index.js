@@ -32,12 +32,7 @@ function uhoh(req, res, next) {
 var server = restify.createServer({
   name: 'API'
 });
-
-server.on('after', function (req, res, route, err) {
-    var latency = Date.now() - req.time();
-    console.log('%s %s %s %sms - %s', req.method, req.url, res.statusCode, latency,
-        res.get('Content-Length'));
-});
+server.use(restify.bodyParser());
 
 server.get('/', root);
 server.head('/', root);
