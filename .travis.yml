@@ -1,3 +1,5 @@
 language: node_js
 node_js:
   - "0.10"
+notifications:
+  slack: everestps:KMgLvTP2eVQhyK6KCfaAjO5M
