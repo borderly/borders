@@ -15,11 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/everestps/api.git"
+    "url": "https://github.com/borderly/backend-api.git"
   },
   "author": "",
   "bugs": {
-    "url": "https://github.com/everestps/api/issues"
+    "url": "https://github.com/borderly/backend-api/issues"
   },
-  "homepage": "https://github.com/everestps/api"
+  "homepage": "https://github.com/borderly/backend-api"
 }
