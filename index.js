@@ -1,5 +1,6 @@
 var restify = require('restify');
 var moment = require('moment');
+var port = Number(process.env.PORT || 8080);
 
 function name(req, res, next) {
   res.send({'hello': req.params.name});
@@ -46,6 +47,6 @@ server.head('/date', date);
 server.get('/(.*)/', uhoh);
 server.head('/(.*)/', uhoh);
 
-server.listen(8080, '0.0.0.0', function() {
+server.listen(port, '0.0.0.0', function() {
   console.log('%s listening at %s', server.name, server.url);
 });
