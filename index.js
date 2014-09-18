@@ -1,34 +1,6 @@
 var restify = require('restify');
-var moment = require('moment');
+var h = require('./handlers');
 var port = Number(process.env.PORT || 8080);
-
-function name(req, res, next) {
-  res.send({'hello': req.params.name});
-  next();
-}
-
-function nameEmpty(req, res, next) {
-  res.send({
-    'hello':'stranger'
-  });
-  next();
-}
-
-function root(req, res, next) {
-  res.send('hello world');
-  next();
-}
-
-function date(req, res, next) {
-  res.send({
-    'fancydate':moment().format('MMMM Do YYYY, h:mm:ss a'),
-    'date':moment().format('L')
-  });
-}
-
-function uhoh(req, res, next) {
-  res.send({'404':'content not found'})
-}
 
 var server = restify.createServer({
   name: 'API'
@@ -36,16 +8,16 @@ var server = restify.createServer({
 server.use(restify.bodyParser());
 server.use(restify.CORS());
 
-server.get('/', root);
-server.head('/', root);
-server.get('/hello', nameEmpty);
-server.head('/hello', nameEmpty);
-server.get('/hello/:name', name);
-server.head('/hello/:name', name);
-server.get('/date', date);
-server.head('/date', date);
-server.get('/(.*)/', uhoh);
-server.head('/(.*)/', uhoh);
+server.get('/', h.root);
+server.head('/', h.root);
+server.get('/hello', h.nameEmpty);
+server.head('/hello', h.nameEmpty);
+server.get('/hello/:name', h.name);
+server.head('/hello/:name', h.name);
+server.get('/date', h.date);
+server.head('/date', h.date);
+server.get('/(.*)/', h.uhoh);
+server.head('/(.*)/', h.uhoh);
 
 server.listen(port, '0.0.0.0', function() {
   console.log('%s listening at %s', server.name, server.url);
