@@ -11,6 +11,8 @@ server.use(restify.fullResponse());
 
 server.get('/', h.root);
 server.head('/', h.root);
+server.get('/laws', h.laws);
+server.head('/laws', h.laws);
 server.get('/hello', h.nameEmpty);
 server.head('/hello', h.nameEmpty);
 server.get('/hello/:name', h.name);
