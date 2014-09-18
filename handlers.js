@@ -1,5 +1,5 @@
 var moment = require('moment');
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
 
 module.exports = {
   name: function(req, res, next) {
