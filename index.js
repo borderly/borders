@@ -7,6 +7,7 @@ var server = restify.createServer({
 });
 server.use(restify.bodyParser());
 server.use(restify.CORS());
+server.use(restify.fullResponse());
 
 server.get('/', h.root);
 server.head('/', h.root);
