@@ -1,5 +1,9 @@
 language: node_js
 node_js:
-  - "0.10"
+- '0.10'
 notifications:
   slack: everestps:KMgLvTP2eVQhyK6KCfaAjO5M
+deploy:
+  provider: heroku
+  api_key:
+    secure: W7JsBjzM1pTCKM5HkbTQL0J4pQa5i24cBexfuq6Q2Rdb+f+2RqOJI7zKnHfWuAn9mzyjkljSRXbAitN3KcPnjWGFif8Eyl/05lNbpUnWpXaHdPz5G01gDLzoPYHhTnM9JB2+o46CLvcjnvhMZbtUT9FkoiHBO8vQ1BMieeW90Eg=
