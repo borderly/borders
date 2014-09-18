@@ -6,6 +6,7 @@
   "dependencies": {
     "mocha": "^1.21.4",
     "moment": "^2.8.3",
+    "mongoose": "^3.8.16",
     "restify": "^2.8.2",
     "supertest": "^0.13.0"
   },
