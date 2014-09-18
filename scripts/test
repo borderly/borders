@@ -5,4 +5,5 @@ PID=$!
 ./node_modules/mocha/bin/mocha
 RESULT=$?
 kill -9 $PID
+echo "Restify killed"
 exit $RESULT
