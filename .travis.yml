@@ -6,4 +6,7 @@ notifications:
 deploy:
   provider: heroku
   api_key:
-    secure: W7JsBjzM1pTCKM5HkbTQL0J4pQa5i24cBexfuq6Q2Rdb+f+2RqOJI7zKnHfWuAn9mzyjkljSRXbAitN3KcPnjWGFif8Eyl/05lNbpUnWpXaHdPz5G01gDLzoPYHhTnM9JB2+o46CLvcjnvhMZbtUT9FkoiHBO8vQ1BMieeW90Eg=
+    secure: UVnL4+v1kExxAuhNR+sHu0e33zBSv0hzXKtupWYV+8btxLY2eTOgQSMNAx3avAZKyVWKCF1r07XhZiYy2RbUcBCrhQ0bwRy6S5VjYf29bIDLXxE+Z0FxU22zVCq3rlRHBg6dGc8l7nGNe2SkBoZB2DNktk+xGc+QOShsH30Dzfk=
+  app: borderly
+  on:
+    repo: borderly/borders
