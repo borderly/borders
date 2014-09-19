@@ -17,7 +17,7 @@ describe('GET /', function(){
   it('repsond with world', function(done){
     request('http://localhost:8080')
       .get('/')
-      .expect('"hello world"', done);
+      .expect('{"message":"This is the borderly api"}', done);
   })
 })
 

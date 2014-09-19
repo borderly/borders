@@ -1,6 +1,6 @@
 module.exports = {
   root: function(req, res, next) {
-    res.redirect('http://google.com');
+    res.send({message:'This is the borderly api'})
     next();
   },
   uhoh: function(req, res, next) {
