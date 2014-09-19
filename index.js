@@ -15,6 +15,9 @@ server.get('/laws', h.laws);
 server.head('/laws', h.laws);
 server.get('/laws/:state', h.lawsByState);
 server.head('/laws/:state', h.lawsByState);
+server.get('/laws/create', h.lawsCreate);
+server.head('/laws/create', h.lawsCreate);
+server.post('/laws/create', h.lawsCreate);
 server.get('/(.*)/', h.uhoh);
 server.head('/(.*)/', h.uhoh);
 

@@ -1,6 +1,5 @@
 var moment = require('moment');
 var mongoose = require('mongoose')
-// mongoose.connect('mongodb://heroku:6mOFBgo8Z5CAjZitQeDBmIZjaWbvtAdpKgUt-tZXgyzM5tAhxHvoz1r4jJF-iIEPPS_CKYlzif9BUCBA_7GYFg@kahana.mongohq.com:10006/app29698871')
 mongoose.connect('mongodb://law:'+process.env.MONGO_PASS+'@proximus.modulusmongo.net:27017/weQaxo3t')
 
 var db = mongoose.connection;
@@ -35,6 +34,18 @@ module.exports = {
       } else {
         res.send(err);
       }
+    });
+  },
+  lawsCreate: function(req, res, next) {
+    var law = new Law({
+      section: req.body.section,
+      title:   req.body.title,
+      state:   req.body.state.toUpperCase(),
+      law:     req.body.law
+    });
+    law.save(function (err, law) {
+      if (err) return console.error(err);
+      res.send(law);
     });
   },
   root: function(req, res, next) {
