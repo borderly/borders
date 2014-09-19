@@ -25,7 +25,8 @@ var Law = mongoose.model('Law', lawSchema);
 
 module.exports = {
   listLaws: function(req, res, next) {
-    Law.find({}).exec(function(err, results){
+    var limit = req.query.limit || 10;
+    Law.find({}).limit(limit).exec(function(err, results){
       if (!err) {
         res.send(results);
       } else {
