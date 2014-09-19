@@ -21,67 +21,32 @@ describe('GET /', function(){
   })
 })
 
-describe('GET /hello', function(){
+describe('GET /laws', function(){
   it('respond with json', function(done){
     request('http://localhost:8080')
-      .get('/hello')
+      .get('/laws')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
   })
   it('repsond with 200 status', function(done){
     request('http://localhost:8080')
-      .get('/hello')
+      .get('/laws')
       .expect(200, done);
-  })
-  it('repsond with name "stranger"', function(done){
-    request('http://localhost:8080')
-      .get('/hello')
-      .expect('{"hello":"stranger"}', done);
   })
 })
 
-describe('GET /hello/:name', function(){
+describe('GET /laws/:name', function(){
   it('respond with json', function(done){
     request('http://localhost:8080')
-      .get('/hello/alex')
+      .get('/laws/ca')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
   })
   it('repsond with 200 status', function(done){
     request('http://localhost:8080')
-      .get('/hello/alex')
+      .get('/laws/ca')
       .expect(200, done);
-  })
-  it('repsond with name "alex"', function(done){
-    request('http://localhost:8080')
-      .get('/hello/alex')
-      .expect('{"hello":"alex"}', done);
-  })
-  it('repsond with name "david"', function(done){
-    request('http://localhost:8080')
-      .get('/hello/david')
-      .expect('{"hello":"david"}', done);
-  })
-})
-
-describe('GET /date', function() {
-  it('respond with json', function(done){
-    request('http://localhost:8080')
-      .get('/date')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200, done);
-  })
-  it('repsond with 200 status', function(done){
-    request('http://localhost:8080')
-      .get('/date')
-      .expect(200, done);
-  })
-  it('respond with current date', function(done){
-    request('http://localhost:8080')
-      .get('/date')
-      .expect('{"fancydate":"'+moment().format('MMMM Do YYYY, h:mm:ss a')+'","date":"'+moment().format('L')+'"}', done);
   })
 })
