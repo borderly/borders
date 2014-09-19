@@ -7,11 +7,18 @@ db.once('open', function callback () {
   console.log('Connected to db');
 });
 
+// var lawSchema = mongoose.Schema({
+//   section: {type:String,required:true},
+//   title:   {type:String,required:true},
+//   state:   {type:String,required:true},
+//   law:     {type:String,required:true}
+// }, { versionKey: false });
+
 var lawSchema = mongoose.Schema({
-  section: {type:String,required:true},
-  title:   {type:String,required:true},
-  state:   {type:String,required:true},
-  law:     {type:String,required:true}
+  section: {type:String},
+  title:   {type:String},
+  state:   {type:String},
+  law:     {type:String}
 }, { versionKey: false });
 
 var Law = mongoose.model('Law', lawSchema);
