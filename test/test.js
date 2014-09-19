@@ -1,5 +1,4 @@
 var request = require('supertest');
-var moment = require('moment');
 
 describe('GET /', function(){
   it('respond with json', function(done){
