@@ -7,21 +7,15 @@ db.once('open', function callback () {
   console.log('Connected to db');
 });
 
-// var lawSchema = mongoose.Schema({
-//   section: {type:String,required:true},
-//   title:   {type:String,required:true},
-//   state:   {type:String,required:true},
-//   law:     {type:String,required:true}
-// }, { versionKey: false });
-
 var lawSchema = mongoose.Schema({
-  section: {type:String},
-  title:   {type:String},
-  state:   {type:String},
-  law:     {type:String}
+  section: {type:String,required:true},
+  title:   {type:String,required:true},
+  state:   {type:String,required:true},
+  law:     {type:String,required:true}
 }, { versionKey: false });
 
 var Law = mongoose.model('Law', lawSchema);
+
 
 module.exports = {
   listLaws: function(req, res, next) {
@@ -35,7 +29,8 @@ module.exports = {
     });
   },
   lawsByState: function(req, res, next) {
-    Law.find({'state': req.params.state.toUpperCase()}).exec(function(err, results){
+    var limit = req.query.limit || 10;
+    Law.find({'state': req.params.state.toUpperCase()}).limit(limit).exec(function(err, results){
       if(!err) {
         res.send(results);
       } else {
