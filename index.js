@@ -1,5 +1,6 @@
 var restify = require('restify');
 var h = require('./handlers');
+var l = require('./laws.js');
 var port = Number(process.env.PORT || 8080);
 
 var server = restify.createServer({
@@ -11,13 +12,13 @@ server.use(restify.fullResponse());
 
 server.get('/', h.root);
 server.head('/', h.root);
-server.get('/laws', h.laws);
-server.head('/laws', h.laws);
-server.get('/laws/:state', h.lawsByState);
-server.head('/laws/:state', h.lawsByState);
-server.get('/laws/create', h.lawsCreate);
-server.head('/laws/create', h.lawsCreate);
-server.post('/laws/create', h.lawsCreate);
+server.get('/laws', l.laws);
+server.head('/laws', l.laws);
+server.get('/laws/:state', l.lawsByState);
+server.head('/laws/:state', l.lawsByState);
+server.get('/laws/create', l.lawsCreate);
+server.head('/laws/create', l.lawsCreate);
+server.post('/laws/create', l.lawsCreate);
 server.get('/(.*)/', h.uhoh);
 server.head('/(.*)/', h.uhoh);
 
