@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/borderly/backend-api/issues"
   },
-  "homepage": "https://github.com/borderly/backend-api"
+  "homepage": "https://github.com/borderly/backend-api",
+  "engines": {
+    "node": "0.10.35"
+  }
 }
