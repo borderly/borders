@@ -17,8 +17,6 @@ var lawSchema = mongoose.Schema({
 }, { versionKey: false });
 
 var Law = mongoose.model('Law', lawSchema);
-var laws = Law.findOne();
-console.log(laws);
 
 module.exports = {
   laws: function(req, res, next) {
@@ -38,6 +36,10 @@ module.exports = {
         res.send(err);
       }
     });
+  },
+  root: function(req, res, next) {
+    res.send('hello world');
+    next();
   },
   uhoh: function(req, res, next) {
     res.send({'404':'content not found'})
