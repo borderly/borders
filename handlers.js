@@ -1,6 +1,6 @@
 module.exports = {
   root: function(req, res, next) {
-    res.send('hello world');
+    res.redirect('http://google.com');
     next();
   },
   uhoh: function(req, res, next) {
