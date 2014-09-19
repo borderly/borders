@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://law:'+process.env.MONGO_PASS+'@proximus.modulusmongo.net:27017/weQaxo3t')
+mongoose.connect(process.env.MONGOHQ_URL);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -8,16 +8,16 @@ db.once('open', function callback () {
 });
 
 var lawSchema = mongoose.Schema({
-  section: String,
-  title:   String,
-  state:   String,
-  law:     String
+  section: {type:String,required:true},
+  title:   {type:String,required:true},
+  state:   {type:String,required:true},
+  law:     {type:String,required:true}
 }, { versionKey: false });
 
 var Law = mongoose.model('Law', lawSchema);
 
 module.exports = {
-  laws: function(req, res, next) {
+  listLaws: function(req, res, next) {
     Law.find({}).exec(function(err, results){
       if (!err) {
         res.send(results);
@@ -43,8 +43,18 @@ module.exports = {
       law:     req.body.law
     });
     law.save(function (err, law) {
-      if (err) return console.error(err);
+      if (err) return res.send(err);
       res.send(law);
+    });
+  },
+  lawsRemove: function(req, res, next) {
+    Law.findById(req.params.id, function(err, doc){
+      if(!err) {
+        doc.remove();
+        res.send({message:'law removed'});
+      } else {
+        res.send(err);
+      }
     });
   }
 }
