@@ -13,11 +13,6 @@ describe('GET /', function(){
       .get('/')
       .expect(200, done);
   })
-  it('repsond with world', function(done){
-    request('http://localhost:8080')
-      .get('/')
-      .expect('{"message":"This is the borderly api"}', done);
-  })
 })
 
 describe('GET /laws', function(){
