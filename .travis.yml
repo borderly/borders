@@ -10,3 +10,5 @@ deploy:
   app: borderly
   on:
     repo: borderly/borders
+services:
+  - mongodb
