@@ -10,7 +10,9 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cors());
-app.use(logger('combined'));
+if(process.env.NODE_ENV == 'production') {
+  app.use(logger('combined'));
+}
 
 app.get('/', h.doc);
 app.head('/', h.doc);

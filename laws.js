@@ -1,5 +1,9 @@
 var mongoose = require('mongoose')
-mongoose.connect(process.env.MONGOHQ_URL);
+if(process.env.NODE_ENV == 'production') {
+  mongoose.connect(process.env.MONGOHQ_URL);
+} else {
+  mongoose.connect('mongodb://localhost/laws');
+}
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
