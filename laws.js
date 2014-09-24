@@ -15,6 +15,7 @@ var lawSchema = mongoose.Schema({
   section: {type:String,required:true},
   title:   {type:String,required:true},
   state:   {type:String,required:true},
+  county:  {type:String,required:true},
   law:     {type:String,required:true}
 }, { versionKey: false });
 

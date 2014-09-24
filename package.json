@@ -16,7 +16,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "./bin/www",
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "NODE_ENV=testing ./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
