@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+var arg = process.argv[2];
+
+switch(arg) {
+  case 'hi':
+    console.log('you entered hi')
+    break;
+  default:
+    console.log('default case, arg:', arg)
+}
