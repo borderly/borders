@@ -1,8 +1,0 @@
-#!/bin/sh
-node index.js &
-sleep 3
-PID=$!
-./node_modules/mocha/bin/mocha
-RESULT=$?
-kill -9 $PID
-exit $RESULT
