@@ -15,7 +15,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "./bin/www",
+    "start": "DEBUG=app ./bin/www",
+    "debug": "DEBUG=* ./bin/www",
     "test": "NODE_ENV=testing ./node_modules/mocha/bin/mocha"
   },
   "repository": {
