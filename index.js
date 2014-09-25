@@ -36,6 +36,22 @@ if(app.get('env') === 'development') {
   });
 }
 
+app.use(function(req, res, next){
+  res.status(404);
+
+  if (req.accepts('html')) {
+    res.render('404', { url: req.url });
+    return;
+  }
+
+  if (req.accepts('json')) {
+    res.send({ error: 'Not found' });
+    return;
+  }
+
+  res.type('txt').send('Not found');
+});
+
 apiRouter.get('/', h.doc);
 apiRouter.get('/laws', l.listLaws);
 apiRouter.head('/laws', l.listLaws);

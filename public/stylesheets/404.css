@@ -1,0 +1,42 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+p {
+  padding: 10px;
+}
+
+.fill {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px 50px;
+  background-color: #00B7FF;
+  transition: all 0.3s;
+  color: white;
+}
+
+.fill:hover, .fill:focus, .fill:active {
+  background-color: white;
+  color: #00B7FF;
+}
+
+.round {
+  border-radius: 15px;
+}
+
+code  {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
