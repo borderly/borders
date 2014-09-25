@@ -5,7 +5,7 @@ block includes
   link(rel='stylesheet', href='stylesheets/create.css')
 
 block content
-  form(action='/laws/create', method='POST')
+  form(action='/api/laws/create', method='POST')
     input(name='section', type='text', placeholder='section')
     input(name='title', type='text', placeholder='title')
     input(name='state', type='text', placeholder='state 2 letter abbreveation only')
