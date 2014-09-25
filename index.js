@@ -6,6 +6,7 @@ var cors = require('cors');
 var h = require('./handlers');
 var l = require('./laws.js');
 var v = require('./views.js');
+var a = require('./app.js');
 var port = Number(process.env.PORT || 8080);
 
 var app = express();
@@ -48,9 +49,10 @@ apiRouter.head('/laws/remove/:id', l.lawsRemove);
 apiRouter.get('/(.*)/', h.uhoh);
 apiRouter.head('/(.*)/', h.uhoh);
 
-
 viewRouter.get('/', v.root);
 viewRouter.get('/create', v.create);
 viewRouter.get('/test', v.test);
+
+appRouter.get('/', a.root);
 
 module.exports = app;
