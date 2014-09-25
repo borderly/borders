@@ -48,6 +48,7 @@ module.exports = {
       section: req.body.section,
       title:   req.body.title,
       state:   req.body.state.toUpperCase(),
+      county:  req.body.county,
       law:     req.body.law
     });
     law.save(function (err, law) {
