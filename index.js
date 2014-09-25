@@ -9,12 +9,17 @@ var v = require('./views.js');
 var port = Number(process.env.PORT || 8080);
 
 var app = express();
+var apiRouter = express.Router();
+var viewRouter = express.Router();
+
 app.engine('jade', require('jade').__express);
 app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cors());
+app.use('/api', apiRouter);
+app.use('', viewRouter);
 
 if(app.get('env') === 'development') {
   app.locals.pretty = true;
@@ -28,20 +33,22 @@ if(app.get('env') === 'development') {
   });
 }
 
-app.get('/', v.root);
-app.head('/', h.doc);
-app.get('/create', v.create);
-app.get('/test', v.test);
-app.get('/laws', l.listLaws);
-app.head('/laws', l.listLaws);
-app.get('/laws/:state', l.lawsByState);
-app.head('/laws/:state', l.lawsByState);
-app.get('/laws/create', l.lawsCreate);
-app.head('/laws/create', l.lawsCreate);
-app.post('/laws/create', l.lawsCreate);
-app.get('/laws/remove/:id', l.lawsRemove);
-app.head('/laws/remove/:id', l.lawsRemove);
-app.get('/(.*)/', h.uhoh);
-app.head('/(.*)/', h.uhoh);
+apiRouter.get('/', v.root);
+apiRouter.head('/', h.doc);
+apiRouter.get('/laws', l.listLaws);
+apiRouter.head('/laws', l.listLaws);
+apiRouter.get('/laws/:state', l.lawsByState);
+apiRouter.head('/laws/:state', l.lawsByState);
+apiRouter.get('/laws/create', l.lawsCreate);
+apiRouter.head('/laws/create', l.lawsCreate);
+apiRouter.post('/laws/create', l.lawsCreate);
+apiRouter.get('/laws/remove/:id', l.lawsRemove);
+apiRouter.head('/laws/remove/:id', l.lawsRemove);
+apiRouter.get('/(.*)/', h.uhoh);
+apiRouter.head('/(.*)/', h.uhoh);
+
+
+viewRouter.get('/create', v.create);
+viewRouter.get('/test', v.test);
 
 module.exports = app;
