@@ -45,3 +45,18 @@ describe('GET /laws/:name', function(){
       .expect(200, done);
   })
 })
+
+describe('GET /create', function(){
+  it('respond with html', function(done){
+    request(app)
+      .get('/create')
+      .set('Accept', 'text/html')
+      .expect('Content-Type', /html/)
+      .expect(200, done);
+  })
+  it('repsond with 200 status', function(done){
+    request(app)
+      .get('/create')
+      .expect(200, done);
+  })
+})
