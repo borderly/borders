@@ -6,7 +6,7 @@ describe('GET /', function(){
     request(app)
       .get('/')
       .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
+      .expect('Content-Type', /html/)
       .expect(200, done);
   })
   it('repsond with 200 status', function(done){
