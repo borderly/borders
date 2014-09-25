@@ -46,8 +46,6 @@ apiRouter.head('/laws/create', l.lawsCreate);
 apiRouter.post('/laws/create', l.lawsCreate);
 apiRouter.get('/laws/remove/:id', l.lawsRemove);
 apiRouter.head('/laws/remove/:id', l.lawsRemove);
-apiRouter.get('/(.*)/', h.uhoh);
-apiRouter.head('/(.*)/', h.uhoh);
 
 viewRouter.get('/', v.root);
 viewRouter.get('/create', v.create);
