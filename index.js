@@ -33,8 +33,6 @@ if(app.get('env') === 'development') {
   });
 }
 
-apiRouter.get('/', v.root);
-apiRouter.head('/', h.doc);
 apiRouter.get('/laws', l.listLaws);
 apiRouter.head('/laws', l.listLaws);
 apiRouter.get('/laws/:state', l.lawsByState);
@@ -48,6 +46,7 @@ apiRouter.get('/(.*)/', h.uhoh);
 apiRouter.head('/(.*)/', h.uhoh);
 
 
+viewRouter.get('/', v.root);
 viewRouter.get('/create', v.create);
 viewRouter.get('/test', v.test);
 
