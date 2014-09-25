@@ -1,0 +1,9 @@
+extends layout
+
+block includes
+  link(rel='stylesheet', href='stylesheets/404.css')
+
+block content
+  h1= title
+  p Dude, <code>#{url}</code> doesnt exist!
+  a(href='/').fill.round Take me to the homepage!
