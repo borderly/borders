@@ -10,14 +10,12 @@ html.no-js
     meta(name='og:image', content='http://borderly.herokuapp.com/images/logo.png')
     meta(name='og:description', content='Borderly app, laws between borders')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    //
-       Place favicon.ico and apple-touch-icon.png in the root directory
     link(rel='stylesheet', href='stylesheets/vendor.css')
     link(rel='stylesheet', href='stylesheets/main.css')
     link(href='http://fonts.googleapis.com/css?family=Raleway:400,100,700', rel='stylesheet', type='text/css')
     script(src='scripts/vendor/modernizr.js')
     script(src='//use.typekit.net/noh4tkj.js')
-    script
+    script.
       try{Typekit.load();}catch(e){}
   body#top
     .container
@@ -71,17 +69,11 @@ html.no-js
       #docs.row.marketing
         h3.text-muted.center Docs
         .col-lg-12
-          pre
-            span.http GET 
-            / 
+          pre <span class="http">GET</span> /
           p This page.
-          pre
-            span.http GET 
-            /api
+          pre <span class="http">GET</span> /api
           p The root of the api
-          pre
-            span.http GET 
-            /api/laws
+          pre <span class="http">GET</span> /api/laws
           p An alphabetical listing of the laws.
           p with optional URL param limit, default to 10.
       a.scrollup(href='#top')
