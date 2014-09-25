@@ -1,5 +1,5 @@
 module.exports = {
   create: function(req, res, next) {
-    res.render('index', {title:'Index',message:'Hi'})
+    res.render('index', {title:'create law',message:'Create the law'})
   }
 }

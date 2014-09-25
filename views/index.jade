@@ -1,3 +1,11 @@
 extends layout
 
 block content
+  form(action='/laws/create', method='POST')
+    input(name='section', type='text', placeholder='section')
+    input(name='title', type='text', placeholder='title')
+    input(name='state', type='text', placeholder='state')
+    input(name='county', type='text', placeholder='county')
+    textarea(name='law', placeholder='law')
+    br
+    input(type='submit', value='Submit the Law').success
