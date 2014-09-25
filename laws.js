@@ -28,7 +28,7 @@ Law.schema.path('state').validate(function (v) {
 
 module.exports = {
   listLaws: function(req, res, next) {
-    var limit = req.query.limit || 10;
+    var limit = req.query.limit || 50;
     Law.find({}).limit(limit).sort({state: 1}).exec(function(err, results){
       if (!err) {
         res.send(results);
