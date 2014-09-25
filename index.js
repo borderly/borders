@@ -33,6 +33,7 @@ if(app.get('env') === 'development') {
   });
 }
 
+apiRouter.get('/', h.doc);
 apiRouter.get('/laws', l.listLaws);
 apiRouter.head('/laws', l.listLaws);
 apiRouter.get('/laws/:state', l.lawsByState);
