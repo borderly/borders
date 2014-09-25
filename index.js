@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded());
 app.use(cors());
 
 if(app.get('env') === 'development') {
+  app.locals.pretty = true;
   app.use(logger('dev'));
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -30,6 +31,7 @@ if(app.get('env') === 'development') {
 app.get('/', v.root);
 app.head('/', h.doc);
 app.get('/create', v.create);
+app.get('/test', v.test);
 app.get('/laws', l.listLaws);
 app.head('/laws', l.listLaws);
 app.get('/laws/:state', l.lawsByState);
