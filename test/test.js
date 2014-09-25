@@ -19,14 +19,14 @@ describe('GET /', function(){
 describe('GET /laws', function(){
   it('respond with json', function(done){
     request(app)
-      .get('/laws')
+      .get('/api/laws')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
   })
   it('repsond with 200 status', function(done){
     request(app)
-      .get('/laws')
+      .get('/api/laws')
       .expect(200, done);
   })
 })
@@ -34,14 +34,14 @@ describe('GET /laws', function(){
 describe('GET /laws/:name', function(){
   it('respond with json', function(done){
     request(app)
-      .get('/laws/ca')
+      .get('/api/laws/ca')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
   })
   it('repsond with 200 status', function(done){
     request(app)
-      .get('/laws/ca')
+      .get('/api/laws/ca')
       .expect(200, done);
   })
 })
