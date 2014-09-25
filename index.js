@@ -11,6 +11,7 @@ var port = Number(process.env.PORT || 8080);
 var app = express();
 var apiRouter = express.Router();
 var viewRouter = express.Router();
+var appRouter = express.Router();
 
 app.engine('jade', require('jade').__express);
 app.set('view engine', 'jade');
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded());
 app.use(cors());
 app.use('/api', apiRouter);
 app.use('', viewRouter);
+app.use('/app', appRouter);
 
 if(app.get('env') === 'development') {
   app.locals.pretty = true;
