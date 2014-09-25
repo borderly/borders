@@ -3,7 +3,7 @@ html
   head
     title!= title
     link(rel='stylesheet', href='css/picnic.min.css')
-    link(rel='stylesheet', href='css/main.css')
+    block includes
   body
     h1!= message
     block content

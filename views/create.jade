@@ -1,5 +1,8 @@
 extends layout
 
+block includes
+  link(rel='stylesheet', href='css/main.css')
+
 block content
   form(action='/laws/create', method='POST')
     input(name='section', type='text', placeholder='section')
