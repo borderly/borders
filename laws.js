@@ -21,6 +21,10 @@ var lawSchema = mongoose.Schema({
 
 var Law = mongoose.model('Law', lawSchema);
 
+Law.schema.path('state').validate(function (v) {
+  v.length < 2
+}, 'State has to be 2 chars long');
+
 
 module.exports = {
   listLaws: function(req, res, next) {

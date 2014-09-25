@@ -27,7 +27,7 @@ if(app.get('env') === 'development') {
   });
 }
 
-app.get('/', h.doc);
+app.get('/', v.root);
 app.head('/', h.doc);
 app.get('/create', v.create);
 app.get('/laws', l.listLaws);

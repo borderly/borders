@@ -1,0 +1,85 @@
+html.no-js
+  head
+    meta(charset='utf-8')
+    title Borderly
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //
+       Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel='stylesheet', href='stylesheets/vendor.css')
+    link(rel='stylesheet', href='stylesheets/main.css')
+    link(href='http://fonts.googleapis.com/css?family=Raleway:400,100,700', rel='stylesheet', type='text/css')
+    script(src='scripts/vendor/modernizr.js')
+    script(src='//use.typekit.net/noh4tkj.js')
+    script
+      try{Typekit.load();}catch(e){}
+  body#top
+    .container
+      .header
+        ul.nav.nav-pills.pull-right
+          li
+            a(href='#') Home
+          li
+            a(href='#about') About
+          li
+            a(href='#team') Team
+          li
+            a(href='#docs') Docs
+        h3.text-muted
+          img(src='images/logo.png', alt='logo', height='36')
+          | Borderly
+      .jumbotron
+        h1.text-muted Welcome to Borderly
+        img(src='images/logo.png', alt='logo', height='500')
+        p.lead We show you the laws.
+      #about.row.marketing
+        .col-lg-6
+          h3 Borderly
+          p
+            | Borderly is an application that is in development right now that will tell you the laws when you cross a border, be it state or county.
+          h4 The Laws
+          p
+            | Since we are small team of 3 high schoolers we don't have time to find out all the laws we will try and get the community to submit laws.
+          h4 Legal
+          p
+            | As above we are a group of 3 Freshmen in High School who are broke so we won't be perfect until we have this going for about a year.
+      hr
+      #team.row.marketing
+        .col-lg-6
+          h4
+            | Alex 
+            span.desc Lead Developer
+          p
+            | Alex is the lead Developer so he does the frontend and backend development. He is a part time web designer in his free time.
+          h4
+            | David 
+            span.desc Backend Developer
+          p
+            | David is the main backend developer. Right now he is learning C so he can become fluent in it.
+          h4
+            | Chris 
+            span.desc Backend Developer
+          p
+            | Chris is one of the backend designers development. In his free time he codes js and does soccer.
+      hr
+      #docs.row.marketing
+        h3.text-muted.center Docs
+        .col-lg-12
+          pre
+            span.http GET 
+            / 
+          p This page.
+          pre
+            span.http GET 
+            /laws
+          p An alphabetical listing of the laws.
+          p with optional URL param limit, default to 10.
+      a.scrollup(href='#top')
+        span.glyphicon.glyphicon-arrow-up
+      .footer
+        p
+          span.glyphicon.glyphicon-heart
+          |  from the Borderly team
+
+    script(src='scripts/vendor.js')
+    script(src='scripts/main.js')

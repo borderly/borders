@@ -1,13 +1,14 @@
 extends layout
 
 block includes
-  link(rel='stylesheet', href='css/main.css')
+  link(rel='stylesheet', href='stylesheets/picnic.min.css')
+  link(rel='stylesheet', href='stylesheets/create.css')
 
 block content
   form(action='/laws/create', method='POST')
     input(name='section', type='text', placeholder='section')
     input(name='title', type='text', placeholder='title')
-    input(name='state', type='text', placeholder='state')
+    input(name='state', type='text', placeholder='state 2 letter abbreveation only')
     input(name='county', type='text', placeholder='county')
     textarea(name='law', placeholder='law')
     br
