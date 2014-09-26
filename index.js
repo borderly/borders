@@ -4,27 +4,23 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var cors = require('cors');
-var h = require('./handlers');
-var l = require('./laws.js');
-var v = require('./views.js');
-var a = require('./app.js');
+var lawRoutes = require('./routes/laws');
+var viewRoutes = require('./routes/views');
+var appRoutes = require('./routes/app');
 var port = Number(process.env.PORT || 8080);
 
 var app = express();
-var apiRouter = express.Router();
-var viewRouter = express.Router();
-var appRouter = express.Router();
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.engine('jade', require('jade').__express);
 app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
-app.use('/api', apiRouter);
-app.use('', viewRouter);
-app.use('/app', appRouter);
+app.use('/api', lawRoutes);
+app.use('', viewRoutes);
+app.use('/app', appRoutes);
 
 if(app.get('env') === 'development') {
   app.locals.pretty = true;
@@ -50,22 +46,5 @@ app.use(function(req, res, next){
   }
   res.type('txt').send('Not found');
 });
-
-apiRouter.get('/', h.doc);
-apiRouter.get('/laws', l.listLaws);
-apiRouter.head('/laws', l.listLaws);
-apiRouter.get('/laws/:state', l.lawsByState);
-apiRouter.head('/laws/:state', l.lawsByState);
-apiRouter.get('/laws/create', l.lawsCreate);
-apiRouter.head('/laws/create', l.lawsCreate);
-apiRouter.post('/laws/create', l.lawsCreate);
-apiRouter.get('/laws/remove/:id', l.lawsRemove);
-apiRouter.head('/laws/remove/:id', l.lawsRemove);
-
-viewRouter.get('/', v.root);
-viewRouter.get('/create', v.create);
-viewRouter.get('/test', v.test);
-
-appRouter.get('/', a.root);
 
 module.exports = app;
