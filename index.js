@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var favicon = require('serve-favicon');
 var cors = require('cors');
 var h = require('./handlers');
 var l = require('./laws.js');
@@ -14,6 +15,7 @@ var apiRouter = express.Router();
 var viewRouter = express.Router();
 var appRouter = express.Router();
 
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.engine('jade', require('jade').__express);
 app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
