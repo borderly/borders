@@ -22,8 +22,6 @@ html.no-js
       .header
         ul.nav.nav-pills.pull-right
           li
-            a(href='#') Home
-          li
             a(href='#about') About
           li
             a(href='#team') Team
@@ -36,9 +34,12 @@ html.no-js
         h1.text-muted Welcome to Borderly
         img(src='images/logo.png', alt='logo', height='500')
         p.lead We show you the laws.
+        p
+          a.btn.btn-lg.btn-success(href='/api') Go to the API
       #about.row.marketing
-        .col-lg-6
-          h3 Borderly
+        h3.text-muted.center About
+        .col-lg-12
+          h4 Borderly
           p
             | Borderly is an application that is in development right now that will tell you the laws when you cross a border, be it state or county.
           h4 The Laws
@@ -49,7 +50,8 @@ html.no-js
             | As above we are a group of 3 Freshmen in High School who are broke so we won't be perfect until we have this going for about a year.
       hr
       #team.row.marketing
-        .col-lg-6
+        h3.text-muted.center Team
+        .col-lg-12
           h4
             | Alex 
             span.desc Lead Developer
