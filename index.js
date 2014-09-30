@@ -22,7 +22,7 @@ app.use('/api', lawRoutes);
 app.use('', viewRoutes);
 app.use('/app', appRoutes);
 
-if(app.get('env') === 'development') {
+if(process.env.NODE_ENV === 'development') {
   app.locals.pretty = true;
   app.use(logger('dev'));
   app.use(function(err, req, res, next) {
