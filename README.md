@@ -1,4 +1,4 @@
-#API [![Build Status](http://img.shields.io/travis/borderly/borders.svg?style=flat)](https://travis-ci.org/borderly/borders) [![Dependency Status](https://img.shields.io/david/borderly/borders.svg?style=flat)](https://david-dm.org/borderly/borders)
+#API [![Build Status](https://img.shields.io/travis/borderly/borders.svg?style=flat)](https://travis-ci.org/borderly/borders) [![Dependency Status](https://img.shields.io/david/borderly/borders.svg?style=flat)](https://david-dm.org/borderly/borders)
 
 An api made using express that queries a mongodb for relevant laws for a county or state
 
