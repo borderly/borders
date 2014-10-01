@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
       laws: {
         example: '/laws',
         urlparams: '?limit=n',
-        doc: 'n is any number, defaults to 10 if not specified'
+        doc: 'n is any number, defaults to 50 if not specified'
       }
     }
   });
