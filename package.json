@@ -2,7 +2,7 @@
   "name": "borders",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "bin/www",
   "dependencies": {
     "body-parser": "^1.8.2",
     "cors": "^2.4.2",
@@ -18,7 +18,7 @@
     "supertest": "^0.14.0"
   },
   "scripts": {
-    "start": "DEBUG=app ./bin/www",
+    "start": "NODE_ENV=production DEBUG=app ./bin/www",
     "debug": "DEBUG=* ./bin/www",
     "test": "NODE_ENV=testing ./node_modules/mocha/bin/mocha"
   },
