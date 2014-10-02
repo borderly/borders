@@ -9,7 +9,7 @@ router.get('/create', function(req, res, next) {
   res.render('create', {title:'create law',message:'Create the law'});
 })
 
-app.use(function(req, res, next){
+router.use(function(req, res, next){
   res.status(404);
   res.render('404', { url: req.url, title: req.url + ' - Not found' });
 });

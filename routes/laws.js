@@ -24,11 +24,6 @@ var lawSchema = mongoose.Schema({
 
 var Law = mongoose.model('Law', lawSchema);
 
-router.use(function(req, res, next){
-  res.status(404);
-  res.jsonp({ error: 'Not found' });
-});
-
 router.get('/', function(req, res, next) {
   res.jsonp({
     message:'This is the borderly API',
@@ -87,6 +82,11 @@ router.get('/laws/remove/:id', function(req, res, next) {
       res.jsonp(err);
     }
   });
+});
+
+router.use(function(req, res, next){
+  res.status(404);
+  res.jsonp({ 404: 'Not found' });
 });
 
 module.exports = router;
