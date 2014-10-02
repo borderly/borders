@@ -21,6 +21,7 @@ app.use(cors());
 app.use('/api', lawRoutes);
 app.use('', viewRoutes);
 app.use('/app', appRoutes);
+app.set('json spaces', 2);
 
 if(process.env.NODE_ENV === 'development') {
   app.locals.pretty = true;
