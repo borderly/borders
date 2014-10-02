@@ -21,10 +21,10 @@ app.use(cors());
 app.use('/a(pi)?', lawRoutes);
 app.use('', viewRoutes);
 app.use('/app', appRoutes);
-app.set('json spaces', 2);
+app.set('jsonp callback name', 'cb');
 
 if(process.env.NODE_ENV === 'development') {
-  app.locals.pretty = true;
+  app.set('json spaces', 2);
   app.use(logger('dev'));
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -35,17 +35,5 @@ if(process.env.NODE_ENV === 'development') {
   });
 }
 
-app.use(function(req, res, next){
-  res.status(404);
-  if (req.accepts('html')) {
-    res.render('404', { url: req.url, title: req.url + ' - Not found' });
-    return;
-  }
-  if (req.accepts('json')) {
-    res.send({ error: 'Not found' });
-    return;
-  }
-  res.type('txt').send('Not found');
-});
 
 module.exports = app;

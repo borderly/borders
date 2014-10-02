@@ -24,8 +24,13 @@ var lawSchema = mongoose.Schema({
 
 var Law = mongoose.model('Law', lawSchema);
 
+router.use(function(req, res, next){
+  res.status(404);
+  res.jsonp({ error: 'Not found' });
+});
+
 router.get('/', function(req, res, next) {
-  res.send({
+  res.jsonp({
     message:'This is the borderly API',
     routes: {
       laws: {
@@ -41,9 +46,9 @@ router.get('/laws', function(req, res, next) {
   var limit = req.query.limit || 50;
   Law.find({}).limit(limit).sort({state: 1}).exec(function(err, results){
     if (!err) {
-      res.send(results);
+      res.jsonp(results);
     } else {
-      res.send(err);
+      res.jsonp(err);
     }
   });
 });
@@ -52,9 +57,9 @@ router.get('/laws/:state', function(req, res, next) {
   var limit = req.query.limit || 10;
   Law.find({'state': req.params.state.toUpperCase()}).limit(limit).exec(function(err, results){
     if(!err) {
-      res.send(results);
+      res.jsonp(results);
     } else {
-      res.send(err);
+      res.jsonp(err);
     }
   });
 });
@@ -68,8 +73,8 @@ router.post('/laws/create', function(req, res, next) {
     law:     req.body.law
   });
   law.save(function (err, law) {
-    if (err) return res.send(err);
-    res.send(law);
+    if (err) return res.jsonp(err);
+    res.jsonp(law);
   });
 });
 
@@ -77,9 +82,9 @@ router.get('/laws/remove/:id', function(req, res, next) {
   Law.findById(req.params.id, function(err, doc){
     if(!err) {
       doc.remove();
-      res.send({message:'law removed'});
+      res.jsonp({message:'law removed'});
     } else {
-      res.send(err);
+      res.jsonp(err);
     }
   });
 });
