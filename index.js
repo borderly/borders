@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
-app.use('/api', lawRoutes);
+app.use('/a(pi)?', lawRoutes);
 app.use('', viewRoutes);
 app.use('/app', appRoutes);
 app.set('json spaces', 2);
