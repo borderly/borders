@@ -33,6 +33,16 @@ router.get('/', function(req, res, next) {
         urlparams: '?limit=n',
         doc: 'n is any number, defaults to 50 if not specified'
       }
+    },
+    dataTypes: {
+      json: {
+        desc: 'standard json',
+        default: true
+      },
+      jsonp: {
+        desc: 'json with a callback',
+        callback: '?cb=<callback name>'
+      }
     }
   });
 });
