@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'assets')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
-app.use('/api', lawRoutes);
+app.use('/a(pi)?', lawRoutes);
 app.use('/app', appRoutes);
 app.use('', viewRoutes);
 app.set('json spaces', 2);
