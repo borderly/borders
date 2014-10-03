@@ -11,20 +11,22 @@ var port = Number(process.env.PORT || 8080);
 
 var app = express();
 
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(require("connect-assets")());
+app.use(favicon(__dirname + '/assets/favicon.ico'));
 app.engine('jade', require('jade').__express);
 app.set('view engine', 'jade');
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'assets')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
-app.use('/a(pi)?', lawRoutes);
-app.use('', viewRoutes);
+app.use('/api', lawRoutes);
 app.use('/app', appRoutes);
+app.use('', viewRoutes);
 app.set('json spaces', 2);
 app.set('jsonp callback name', 'cb');
 
 if(process.env.NODE_ENV === 'development') {
+  app.locals.pretty = true;
   app.use(logger('dev'));
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
