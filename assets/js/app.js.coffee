@@ -3,4 +3,5 @@ $.ajax
   url: '/api'
   success: (data) ->
     console.log data
+    $('body').append(data.message)
     return
