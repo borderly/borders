@@ -8,6 +8,6 @@ $.ajax
     console.log data
     _.each data, (data) ->
       console.log data.section
-      $('body').append "section: #{data.section}<br>title: #{data.title}<br>state: #{data.state}<br>county: #{data.county}<br>law: #{data.law}<br><br>"
+      $('body').append "section: #{data.section}<br>title: #{data.title}<br>state: #{data.state}<br>county: #{data.county}<br>law: #{data.law}<br>id: #{data._id}<br><br>"
       return
     return

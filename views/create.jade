@@ -1,8 +1,10 @@
 extends layout
 
 block includes
-  link(rel='stylesheet', href='/stylesheets/picnic.min.css')
-  link(rel='stylesheet', href='/stylesheets/create.css')
+  != css('picnic')
+  != css('create')
+  // link(rel='stylesheet', href='/stylesheets/picnic.min.css')
+  // link(rel='stylesheet', href='/stylesheets/create.css')
 
 block content
   form(action='/api/laws/create', method='POST')

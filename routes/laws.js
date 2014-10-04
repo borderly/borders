@@ -1,5 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var shortId = require('shortid');
 var router = express.Router();
 
 if(process.env.NODE_ENV == 'production') {
@@ -19,7 +20,8 @@ var lawSchema = mongoose.Schema({
   title:   {type:String,required:true},
   state:   {type:String,required:true},
   county:  {type:String,required:true},
-  law:     {type:String,required:true}
+  law:     {type:String,required:true},
+  _id:     {type: String,unique: true,'default': shortId.generate}
 }, { versionKey: false });
 
 var Law = mongoose.model('Law', lawSchema);
