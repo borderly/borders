@@ -4,6 +4,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var cors = require('cors');
+var db = require('./routes/db')
 var lawRoutes = require('./routes/laws');
 var viewRoutes = require('./routes/views');
 var appRoutes = require('./routes/app');

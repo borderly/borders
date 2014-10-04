@@ -1,30 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var shortId = require('shortid');
 var router = express.Router();
-
-if(process.env.NODE_ENV == 'production') {
-  mongoose.connect(process.env.MONGOHQ_URL);
-} else {
-  mongoose.connect('mongodb://localhost/laws');
-}
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  console.log('[laws] Connected to db');
-});
-
-var lawSchema = mongoose.Schema({
-  section: {type:String,required:true},
-  title:   {type:String,required:true},
-  state:   {type:String,required:true},
-  county:  {type:String,required:true},
-  law:     {type:String,required:true},
-  _id:     {type: String,unique: true,'default': shortId.generate}
-}, { versionKey: false });
-
-var Law = mongoose.model('Law', lawSchema);
+var Law = mongoose.model('Law')
 
 router.get('/', function(req, res, next) {
   res.jsonp({
@@ -96,9 +73,15 @@ router.get('/laws/remove/:id', function(req, res, next) {
   });
 });
 
+router.get('/laws/render/:id', function(req, res, next) {
+  Law.findById(req.params.id, function(err, doc) {
+    res.render('app/law', doc)
+  })
+});
+
 router.use(function(req, res, next){
   res.status(404);
   res.jsonp({ 404: 'Not found' });
 });
 
-module.exports = router;
+module.exports = router, Law;
