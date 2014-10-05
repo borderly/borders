@@ -84,4 +84,4 @@ router.use(function(req, res, next){
   res.jsonp({ 404: 'Not found' });
 });
 
-module.exports = router, Law;
+module.exports = router;
