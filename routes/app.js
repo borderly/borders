@@ -13,7 +13,15 @@ router.get('/test', function(req, res, next) {
 
 router.get('/law/:id', function(req, res, next) {
   Law.findById(req.params.id, function(err, doc) {
-    res.render('app/law', doc)
+    res.render('app/law', {
+      pageTitle: 'Law listing',
+      _id: doc._id,
+      section: doc.section,
+      title: doc.title,
+      state: doc.state,
+      county: doc.county,
+      law: doc.law
+    })
   });
 });
 
