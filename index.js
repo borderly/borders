@@ -4,11 +4,10 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var cors = require('cors');
-var db = require('./db')
+require('./db');
 var lawRoutes = require('./routes/laws');
 var viewRoutes = require('./routes/views');
 var appRoutes = require('./routes/app');
-var port = Number(process.env.PORT || 8080);
 
 var app = express();
 
@@ -29,7 +28,7 @@ app.set('jsonp callback name', 'cb');
 if(process.env.NODE_ENV === 'development') {
   app.locals.pretty = true;
   app.use(logger('dev'));
-  app.use(function(err, req, res, next) {
+  app.use(function(err, req, res) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,

@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var shortId = require('shortid');
 var Schema = mongoose.Schema;
 
-if(process.env.NODE_ENV == 'production') {
+if(process.env.NODE_ENV === 'production') {
   mongoose.connect(process.env.MONGOHQ_URL);
 } else {
   mongoose.connect('mongodb://localhost/laws');
@@ -14,7 +14,7 @@ db.once('open', function callback () {
   console.log('[db.js] Connected to db');
 });
 
-var lawSchema = Schema({
+var lawSchema = new Schema({
   section: {type:String,required:true},
   title:   {type:String,required:true},
   state:   {type:String,required:true},
