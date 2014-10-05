@@ -5,7 +5,6 @@ var Law = mongoose.model('Law')
 
 router.get('/', function(req, res, next) {
   Law.find({}).sort({state: 1}).exec(function(err, results){
-    console.log(results)
     res.render('app/index', {
       pageTitle: 'Law index',
       laws: results
