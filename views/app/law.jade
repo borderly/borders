@@ -1,23 +1,13 @@
 extends layout
 
 block includes
+  != css('app')
 
 block content
-  p.id
-    | id:
-    = ' ' + _id
-  p.state
-    | state:
-    = ' ' + state
-  p.section
-    | section:
-    = ' ' + section
-  p.title
-    | title:
-    = ' ' + title
-  p.county
-    | county:
-    = ' ' +  county
-  p.law
-    | law:
-    = ' ' + law
+  h1 Law
+  p.id id: #{law._id}
+  p.state state: #{law.state}
+  p.section section: #{law.section}
+  p.title title: #{law.title}
+  p.county county: #{law.county}
+  p.law law: #{law.law}

@@ -5,4 +5,7 @@ block includes
 
 block content
   h1 Dude, <code>#{url}</code> doesnt exist!
-  a(href='/').fill.round Take me to the homepage!
+  if laws
+    a(href='/app').fill.round Take me to the homepage!
+  else
+    a(href='/').fill.round Take me to the homepage!

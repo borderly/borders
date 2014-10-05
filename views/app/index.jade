@@ -1,9 +1,17 @@
 extends layout
 
 block includes
-  // script(src='//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.4/zepto.min.js')
-  != js('app')
   != css('app')
 
 block content
-  h1 Test
+  h1 List
+  each law in laws
+    hr
+    p.id id: #{law._id}
+    p.state state: #{law.state}
+    p.section section: #{law.section}
+    p.title title: #{law.title}
+    p.county county: #{law.county}
+    p.law law: #{law.law}
+    p.link
+      a(href='/app/law/#{law._id}') Page
