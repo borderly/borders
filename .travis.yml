@@ -16,6 +16,3 @@ deploy:
     repo: borderly/borders
 services:
   - mongodb
-addons:
-  code_climate:
-    repo_token: "X+CwnMOzlDcusyyyk75KbWKCCAkGY/WyxDTDB1kEYGt73t+rLiEErwQes9L5D9lynp1MZ4gJyu37V2pcR5kuqeG2qzM2yLaW8GiAJxY4ZU+p40O2eUVn8N1DrwQ1MVxFdADXUNaA5kVHLK7xT3O97UqIbK48AV4W3IIrhr0DEWw="
