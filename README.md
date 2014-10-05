@@ -23,13 +23,11 @@
 
 An api made using express that queries a mongodb for relevant laws for a county or state
 
-#Instructions
-
-##Installation
+<h2 align="center">Installation</h2>
 
 1. First you have to install mongodb
 2. Once you have mongo installed you need to install the npm packages by `npm install`
 
-##Running
+<h2 align="center">Running</h2>
 
 If you have [foreman](https://github.com/ddollar/foreman) installed you can just enter the `foreman run web` to start it otherwise you can just start it up by running `node index.js`
