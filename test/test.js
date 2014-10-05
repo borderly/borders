@@ -31,7 +31,7 @@ describe('GET /create', function(){
   })
 })
 
-describe('GET /laws', function(){
+describe('GET /api/laws', function(){
   it('respond with json', function(done){
     request(app)
       .get('/api/laws')
@@ -46,7 +46,7 @@ describe('GET /laws', function(){
   })
 })
 
-describe('GET /laws/:name', function(){
+describe('GET /api/laws/:name', function(){
   it('respond with json', function(done){
     request(app)
       .get('/api/laws/ca')

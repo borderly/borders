@@ -48,7 +48,7 @@ router.get('/laws/:state', function(req, res, next) {
   });
 });
 
-router.post('/laws/create', function(req, res, next) {
+router.post('/laws/c', function(req, res, next) {
   var law = new Law({
     section: req.body.section,
     title:   req.body.title,
@@ -62,7 +62,7 @@ router.post('/laws/create', function(req, res, next) {
   });
 });
 
-router.get('/laws/remove/:id', function(req, res, next) {
+router.get('/laws/r/:id', function(req, res, next) {
   Law.findById(req.params.id, function(err, doc){
     if(!err) {
       doc.remove();
@@ -73,10 +73,19 @@ router.get('/laws/remove/:id', function(req, res, next) {
   });
 });
 
-router.get('/laws/render/:id', function(req, res, next) {
-  Law.findById(req.params.id, function(err, doc) {
-    res.render('app/law', doc)
-  })
+router.put('/laws/u/:id', function(req, res, next) {
+  Law.findById(req.params.id, function(err, law){
+    if(err) return res.jsonp(err)
+    if(req.body.section != null) law.section = req.body.section
+    if(req.body.title != null) law.title = req.body.title
+    if(req.body.state != null) law.state = req.body.state.toUpperCase();
+    if(req.body.county != null) law.county = req.body.county
+    if(req.body.law != null) law.law = req.body.law
+    law.save(function(err, law) {
+      if(err) return res.jsonp(err);
+      res.jsonp(law);
+    });
+  });
 });
 
 router.use(function(req, res, next){
