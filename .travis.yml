@@ -1,9 +1,10 @@
 language: node_js
 node_js:
 - '0.10'
+script: npm run test-travis
 before_script: "npm install -g codeclimate-test-reporter"
 after_script:
-  - cat lcov.info | codeclimate
+  - codeclimate < coverage/lcov.info
 notifications:
   slack: everestps:KMgLvTP2eVQhyK6KCfaAjO5M
 deploy:
