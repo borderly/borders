@@ -3,7 +3,6 @@ extends layout
 
 block includes
   != css('app')
-  != js('jquery')
 
 block content
   h1#beg List
@@ -13,7 +12,6 @@ block content
       .third
         each law in laws
           .law
-            hr
             p id: 
               span.data #{law._id}
             p state: 

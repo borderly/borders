@@ -24,9 +24,9 @@ app.use('/a(pp)?', appRoutes);
 app.use('', viewRoutes);
 app.set('json spaces', 2);
 app.set('jsonp callback name', 'cb');
+app.locals.pretty = true;
 
 if(process.env.NODE_ENV === 'development') {
-  app.locals.pretty = true;
   app.use(logger('dev'));
   app.use(function(err, req, res) {
     res.status(err.status || 500);
