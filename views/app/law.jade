@@ -1,14 +1,23 @@
+include ../mixins/nav
 extends layout
 
 block includes
   != css('app')
 
 block content
-  h1 Law
+  +nav({name: 'Borderly', link: '/app'}, {links: {href: '#beg', text: 'text'}})
+  h1#beg Law
   hr
-  p.id id: #{law._id}
-  p.state state: #{law.state}
-  p.section section: #{law.section}
-  p.title title: #{law.title}
-  p.county county: #{law.county}
-  p.law law: #{law.law}
+  p id: 
+    span.id #{law._id}
+  p state: 
+    span.state #{law.state}
+  p section: 
+    span.section #{law.section}
+  p title: 
+    span.title #{law.title}
+  p county: 
+    span.county #{law.county}
+  p law: 
+    span.law #{law.law},b
+

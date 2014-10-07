@@ -1,0 +1,8 @@
+mixin nav(brand, links)
+  nav
+    a.main(href='#{brand.link}') #{brand.name}
+      input#bmenu.burgercheck(type='checkbox')
+      label.burgermenu(for='bmenu')
+      .menu
+        each item in links
+          a.icon-button(href='#{item.href}') #{item.text}

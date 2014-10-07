@@ -4,7 +4,8 @@ var router = express.Router();
 var Law = mongoose.model('Law');
 
 router.get('/', function(req, res) {
-  Law.find({}).sort({state: 1}).exec(function(err, results){
+  var limit = req.query.limit || 50;
+  Law.find({}).limit(limit).sort({state: 1}).exec(function(err, results){
     res.render('app/index', {
       pageTitle: 'Law index',
       laws: results

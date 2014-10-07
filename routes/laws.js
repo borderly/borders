@@ -38,7 +38,7 @@ router.get('/laws', function(req, res) {
 });
 
 router.get('/laws/:state', function(req, res) {
-  var limit = req.query.limit || 10;
+  var limit = req.query.limit || 50;
   Law.find({'state': req.params.state.toUpperCase()}).limit(limit).exec(function(err, results){
     if(!err) {
       res.jsonp(results);
