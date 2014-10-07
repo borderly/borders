@@ -5,18 +5,21 @@ block includes
   != css('app')
 
 block content
-  +nav({name: 'Borderly', link: '/app'}, {links: {href: '#beg', text: 'text'}})
-  h1#beg Law
-  hr
-  p id: 
-    span.id #{law._id}
-  p state: 
-    span.state #{law.state}
-  p section: 
-    span.section #{law.section}
-  p title: 
-    span.title #{law.title}
-  p county: 
-    span.county #{law.county}
-  p law: 
-    span.law #{law.law}
+  +nav({name: 'Borderly', link: '/app'}, {links: {href: '/api/laws', text: 'api'}})
+  .container
+    .row
+      .fourth
+        h1#beg Law
+        hr
+        p id: 
+          span.data #{law._id}
+        p state: 
+          span.data #{law.state}
+        p section: 
+          span.data #{law.section}
+        p title: 
+          span.data #{law.title}
+        p county: 
+          span.data #{law.county}
+        p law: 
+          span.data #{law.law}

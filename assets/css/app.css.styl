@@ -1,6 +1,8 @@
-//= require normalize
 //= require picnic
-/*! borderly app css */
+/* borderly app css */
+
+red = hsla(5, 70%, 54%, 1)
+blue = hsla(218, 89%, 61%, 1)
 
 body
   font-family sans-serif
@@ -8,8 +10,15 @@ body
 #beg
   margin-top 60px
 
-p
-  color #55acee
+.law
+  transition all 0.3s
+  &:hover
+    background-color darken(white, 15%)
+  a
+    color red
+    &:hover
+      text-decoration none
+      border-bottom dotted 1px red
 
-.id, .state, .section, .title, .county, .law
-  color #6762a6
+.data
+  color blue
