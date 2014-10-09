@@ -3,6 +3,7 @@
 
 red = hsla(5, 70%, 54%, 1)
 blue = hsla(218, 89%, 61%, 1)
+purple = hsla(244, 27%, 52%, 1)
 
 body
   font-family sans-serif
@@ -16,13 +17,15 @@ body
   transition all 0.3s
   border-radius 15px
   padding 5px 10px
+  margin 10px
   &:hover
-    background-color darken(white, 15%)
+    background-color lighten(purple, 90%)
   a
     color red
+    border-bottom dotted 1px red
     &:hover
       text-decoration none
-      border-bottom dotted 1px red
+      border-bottom solid 1px red
 
 .data
   color blue
